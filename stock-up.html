@@ -35,93 +35,49 @@
 .reassurance__items{display:flex;flex-direction:column;gap:0.5rem;align-items:center;justify-content:center}
 .reassurance__item{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#2c322f}
 .reassurance__sep{display:none;color:#C7084F;font-weight:900;font-size:1.25rem}
-@media(orientation:landscape) and (max-height:500px){
-  .hero{min-height:auto}
-}
+
+@media(orientation:landscape) and (max-height:500px){.hero{min-height:auto}}
+
+/* 768px — reassurance row */
 @media(min-width:768px){
-  .hero{padding:4rem 6rem}
-  .products{padding:6rem}
-  .products__grid{grid-template-columns:1fr 1fr 1fr}
   .reassurance__items{flex-direction:row;gap:0}
   .reassurance__sep{display:inline}
   .reassurance__item{padding:0 1.5rem}
+}
+
+/* 768–1023px — intermediate 2-col products */
+@media(min-width:768px) and (max-width:1023px){
+  .products__grid{grid-template-columns:1fr 1fr;gap:1.5rem}
+}
+
+/* 1024px — 3-col products, generous padding */
+@media(min-width:1024px){
+  .hero{padding:4rem 6rem}
+  .products{padding:6rem}
+  .products__grid{grid-template-columns:1fr 1fr 1fr}
 }
 </style>
 </head>
 <body>
 <nav class="nav">
   <a href="index.html" class="nav__logo"><img src="images/logo.svg" alt="HANGOVR 180"/></a>
-  <div class="nav__links">
-    <a href="doa180.html" class="nav__link">DO A 180</a>
-    <a href="whos-in.html" class="nav__link">TOMORROW PEOPLE</a>
-    <a href="inside.html" class="nav__link">WHAT'S INSIDE</a>
-    <a href="find-us.html" class="nav__link">FIND US</a>
-    <a href="stock-up.html" class="nav__link nav__link--active">STOCK UP</a>
-  </div>
+  <div class="nav__links"><a href="doa180.html" class="nav__link">DO A 180</a><a href="whos-in.html" class="nav__link">TOMORROW PEOPLE</a><a href="inside.html" class="nav__link">WHAT'S INSIDE</a><a href="find-us.html" class="nav__link">FIND US</a><a href="stock-up.html" class="nav__link nav__link--active">STOCK UP</a></div>
   <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </nav>
-<div id="mm" class="mobile-menu">
-  <a href="doa180.html">DO A 180</a><a href="whos-in.html">TOMORROW PEOPLE</a><a href="inside.html">WHAT'S INSIDE</a><a href="find-us.html">FIND US</a><a href="stock-up.html">STOCK UP</a>
-</div>
+<div id="mm" class="mobile-menu"><a href="doa180.html">DO A 180</a><a href="whos-in.html">TOMORROW PEOPLE</a><a href="inside.html">WHAT'S INSIDE</a><a href="find-us.html">FIND US</a><a href="stock-up.html">STOCK UP</a></div>
 <main>
-<section class="hero">
-  <div class="hero__content">
-    <h1 class="hero__headline">STOCK UP.</h1>
-    <p class="hero__sub">For when <strong>your store</strong> hasn't caught up yet.</p>
+<section class="hero"><div class="hero__content"><h1 class="hero__headline">STOCK UP.</h1><p class="hero__sub">For when <strong>your store</strong> hasn't caught up yet.</p></div></section>
+<section class="products"><div class="products__inner">
+  <h2 class="products__title">One pouch. One person. One night. That's it.</h2>
+  <div class="products__grid">
+    <div class="card"><div class="card__image"><img src="images/product-6pack.webp" alt="HANGOVR 180 6-Pack" loading="lazy"/></div><div class="card__body"><span class="card__pack">6-Pack</span><span class="card__desc">Six single-serve pouches. Enough to get through the week.</span><div><span class="card__price">$29</span><span class="card__per">$4.83 / pouch</span></div><button class="card__btn">Add to Cart</button></div></div>
+    <div class="card"><div class="card__image"><img src="images/product-24pack.webp" alt="HANGOVR 180 24-Pack" loading="lazy"/></div><div class="card__body"><span class="card__pack">24-Pack</span><span class="card__desc">A month of going out without paying for it the next day.</span><div><span class="card__price">$99</span><span class="card__per">$4.13 / pouch</span></div><button class="card__btn">Add to Cart</button></div></div>
+    <div class="card"><div class="card__image"><img src="images/product-96pack.webp" alt="HANGOVR 180 96-Pack" loading="lazy"/></div><div class="card__body"><span class="card__pack">96-Pack</span><span class="card__desc">You know who you are. The whole crew's covered.</span><div><span class="card__price">$349</span><span class="card__per">$3.64 / pouch</span></div><button class="card__btn">Add to Cart</button></div></div>
   </div>
-</section>
-<section class="products">
-  <div class="products__inner">
-    <h2 class="products__title">One pouch. One person. One night. That's it.</h2>
-    <div class="products__grid">
-      <div class="card">
-        <div class="card__image"><img src="images/product-6pack.webp" alt="HANGOVR 180 6-Pack" loading="lazy"/></div>
-        <div class="card__body">
-          <span class="card__pack">6-Pack</span>
-          <span class="card__desc">Six single-serve pouches. Enough to get through the week.</span>
-          <div><span class="card__price">$29</span><span class="card__per">$4.83 / pouch</span></div>
-          <button class="card__btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__image"><img src="images/product-24pack.webp" alt="HANGOVR 180 24-Pack" loading="lazy"/></div>
-        <div class="card__body">
-          <span class="card__pack">24-Pack</span>
-          <span class="card__desc">A month of going out without paying for it the next day.</span>
-          <div><span class="card__price">$99</span><span class="card__per">$4.13 / pouch</span></div>
-          <button class="card__btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__image"><img src="images/product-96pack.webp" alt="HANGOVR 180 96-Pack" loading="lazy"/></div>
-        <div class="card__body">
-          <span class="card__pack">96-Pack</span>
-          <span class="card__desc">You know who you are. The whole crew's covered.</span>
-          <div><span class="card__price">$349</span><span class="card__per">$3.64 / pouch</span></div>
-          <button class="card__btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="ttt">
-  <p class="ttt__text">TEAR<span class="ttt__comma">,</span> TAKE<span class="ttt__comma">,</span> TURN UP</p>
-</section>
-<section class="reassurance">
-  <div class="reassurance__inner">
-    <div class="reassurance__box"><p class="reassurance__box-text">Patent pending. Three ingredients. Nothing else.</p></div>
-    <div class="reassurance__items">
-      <span class="reassurance__item">Clinical-grade doses</span><span class="reassurance__sep">&bull;</span>
-      <span class="reassurance__item">No fillers.</span><span class="reassurance__sep">&bull;</span>
-      <span class="reassurance__item">Ships fast from Austin.</span>
-    </div>
-  </div>
-</section>
+</div></section>
+<section class="ttt"><p class="ttt__text">TEAR<span class="ttt__comma">,</span> TAKE<span class="ttt__comma">,</span> TURN UP</p></section>
+<section class="reassurance"><div class="reassurance__inner"><div class="reassurance__box"><p class="reassurance__box-text">Patent pending. Three ingredients. Nothing else.</p></div><div class="reassurance__items"><span class="reassurance__item">Clinical-grade doses</span><span class="reassurance__sep">&bull;</span><span class="reassurance__item">No fillers.</span><span class="reassurance__sep">&bull;</span><span class="reassurance__item">Ships fast from Austin.</span></div></div></section>
 </main>
-<footer class="footer">
-  <div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/></div>
-  <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div>
-  <div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div>
-</footer>
+<footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
 </body>
 </html>

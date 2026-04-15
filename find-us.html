@@ -46,95 +46,77 @@
 .events__input::placeholder{color:rgba(48,54,51,0.4)}
 .events__input:focus{outline:none;box-shadow:inset 0 -4px 0 #303633}
 .events__fine{font-size:0.75rem;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:rgba(48,54,51,0.5)}
+
 @media(orientation:landscape) and (max-height:500px){
   .hero{min-height:40vh}
   .hero__headline{font-size:clamp(2rem,6vw,3.5rem)}
   .hero__sub{font-size:clamp(1rem,2.5vw,1.25rem)}
   .ttt-banner{min-height:20vh}
 }
+
+/* 768px — form row, location row */
 @media(min-width:768px){
+  .location{flex-direction:row;align-items:center;justify-content:space-between;gap:0}
+  .events__form{flex-direction:row;gap:0}
+}
+
+/* 768–1023px — intermediate 2-col gallery */
+@media(min-width:768px) and (max-width:1023px){
+  .wild__gallery{grid-template-columns:1fr 1fr}
+}
+
+/* 1024px — 3-col gallery, generous padding */
+@media(min-width:1024px){
   .hero{padding:4rem 6rem}
   .locations{padding:6rem}
-  .location{flex-direction:row;align-items:center;justify-content:space-between;gap:0}
   .wild{padding:6rem}
   .wild__gallery{grid-template-columns:1fr 1fr 1fr}
-  .events__form{flex-direction:row;gap:0}
 }
 </style>
 </head>
 <body>
 <nav class="nav">
   <a href="index.html" class="nav__logo"><img src="images/logo.svg" alt="HANGOVR 180"/></a>
-  <div class="nav__links">
-    <a href="doa180.html" class="nav__link">DO A 180</a>
-    <a href="whos-in.html" class="nav__link">TOMORROW PEOPLE</a>
-    <a href="inside.html" class="nav__link">WHAT'S INSIDE</a>
-    <a href="find-us.html" class="nav__link nav__link--active">FIND US</a>
-    <a href="stock-up.html" class="nav__link">STOCK UP</a>
-  </div>
+  <div class="nav__links"><a href="doa180.html" class="nav__link">DO A 180</a><a href="whos-in.html" class="nav__link">TOMORROW PEOPLE</a><a href="inside.html" class="nav__link">WHAT'S INSIDE</a><a href="find-us.html" class="nav__link nav__link--active">FIND US</a><a href="stock-up.html" class="nav__link">STOCK UP</a></div>
   <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </nav>
-<div id="mm" class="mobile-menu">
-  <a href="doa180.html">DO A 180</a><a href="whos-in.html">TOMORROW PEOPLE</a><a href="inside.html">WHAT'S INSIDE</a><a href="find-us.html">FIND US</a><a href="stock-up.html">STOCK UP</a>
-</div>
+<div id="mm" class="mobile-menu"><a href="doa180.html">DO A 180</a><a href="whos-in.html">TOMORROW PEOPLE</a><a href="inside.html">WHAT'S INSIDE</a><a href="find-us.html">FIND US</a><a href="stock-up.html">STOCK UP</a></div>
 <main>
 <section class="hero">
-  <picture>
-    <source media="(max-width:767px)" srcset="images/hero-findus-mobile-portrait.webp"/>
-    <source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-findus-mobile-landscape.webp"/>
-    <img src="images/hero-findus-desktop.webp" alt="Women walking past liquor store in daylight" class="hero__img"/>
-  </picture>
-  <div class="hero__content">
-    <h1 class="hero__headline">FIND US.</h1>
-    <p class="hero__sub">Once you've decided tonight will be <strong>SOCIAL</strong>, we're there. Find 180 as your night moves.</p>
-  </div>
+  <picture><source media="(max-width:767px)" srcset="images/hero-findus-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-findus-mobile-landscape.webp"/><img src="images/hero-findus-desktop.webp" alt="Women walking past liquor store in daylight" class="hero__img"/></picture>
+  <div class="hero__content"><h1 class="hero__headline">FIND US.</h1><p class="hero__sub">Once you've decided tonight will be <strong>SOCIAL</strong>, we're there. Find 180 as your night moves.</p></div>
 </section>
-<section class="locations">
-  <div class="locations__inner">
-    <h2 class="locations__headline">WHERE TO GRAB ONE</h2>
-    <p class="locations__sub">We're rolling out across Austin. Here's where you can find HANGOVR 180 right now.</p>
-    <div class="locations__grid">
-      <div class="location"><div class="location__info"><span class="location__type">Liquor Store</span><span class="location__name">Twin Liquors &mdash; South Lamar</span><span class="location__address">2000 S Lamar Blvd, Austin, TX 78704</span></div><span class="location__badge">In Stock</span></div>
-      <div class="location"><div class="location__info"><span class="location__type">Convenience</span><span class="location__name">Royal Blue Grocery &mdash; South Congress</span><span class="location__address">1500 S Congress Ave, Austin, TX 78704</span></div><span class="location__badge">In Stock</span></div>
-      <div class="location"><div class="location__info"><span class="location__type">Golf Course</span><span class="location__name">Lions Municipal Golf Course &mdash; Pro Shop</span><span class="location__address">2901 Enfield Rd, Austin, TX 78703</span></div><span class="location__badge">In Stock</span></div>
-      <div class="location"><div class="location__info"><span class="location__type">Bar</span><span class="location__name">Meanwhile Brewing Co.</span><span class="location__address">3901 Promontory Point Dr, Austin, TX 78744</span></div><span class="location__badge">In Stock</span></div>
-      <div class="location"><div class="location__info"><span class="location__type">Liquor Store</span><span class="location__name">Spec's &mdash; Brodie Lane</span><span class="location__address">4970 W US Hwy 290 Service Rd, Austin, TX 78735</span></div><span class="location__badge">In Stock</span></div>
-    </div>
+<section class="locations"><div class="locations__inner">
+  <h2 class="locations__headline">WHERE TO GRAB ONE</h2>
+  <p class="locations__sub">We're rolling out across Austin. Here's where you can find HANGOVR 180 right now.</p>
+  <div class="locations__grid">
+    <div class="location"><div class="location__info"><span class="location__type">Liquor Store</span><span class="location__name">Twin Liquors &mdash; South Lamar</span><span class="location__address">2000 S Lamar Blvd, Austin, TX 78704</span></div><span class="location__badge">In Stock</span></div>
+    <div class="location"><div class="location__info"><span class="location__type">Convenience</span><span class="location__name">Royal Blue Grocery &mdash; South Congress</span><span class="location__address">1500 S Congress Ave, Austin, TX 78704</span></div><span class="location__badge">In Stock</span></div>
+    <div class="location"><div class="location__info"><span class="location__type">Golf Course</span><span class="location__name">Lions Municipal Golf Course &mdash; Pro Shop</span><span class="location__address">2901 Enfield Rd, Austin, TX 78703</span></div><span class="location__badge">In Stock</span></div>
+    <div class="location"><div class="location__info"><span class="location__type">Bar</span><span class="location__name">Meanwhile Brewing Co.</span><span class="location__address">3901 Promontory Point Dr, Austin, TX 78744</span></div><span class="location__badge">In Stock</span></div>
+    <div class="location"><div class="location__info"><span class="location__type">Liquor Store</span><span class="location__name">Spec's &mdash; Brodie Lane</span><span class="location__address">4970 W US Hwy 290 Service Rd, Austin, TX 78735</span></div><span class="location__badge">In Stock</span></div>
   </div>
-</section>
+</div></section>
 <section class="ttt-banner">
-  <picture>
-    <source media="(max-width:767px)" srcset="images/findus-teartaketurnup-mobile-portrait.webp"/>
-    <source media="(max-width:1023px) and (orientation:landscape)" srcset="images/findus-teartaketurnup-mobile-landscape.webp"/>
-    <img src="images/findus-teartaketurnup-desktop.webp" alt="HANGOVR 180 flags in a bar" class="ttt-banner__img" loading="lazy"/>
-  </picture>
-  <div class="ttt-banner__overlay"></div>
-  <p class="ttt-banner__text">TEAR, TAKE, TURN UP.</p>
+  <picture><source media="(max-width:767px)" srcset="images/findus-teartaketurnup-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/findus-teartaketurnup-mobile-landscape.webp"/><img src="images/findus-teartaketurnup-desktop.webp" alt="HANGOVR 180 flags in a bar" class="ttt-banner__img" loading="lazy"/></picture>
+  <div class="ttt-banner__overlay"></div><p class="ttt-banner__text">TEAR, TAKE, TURN UP.</p>
 </section>
-<section class="wild">
-  <div class="wild__inner">
-    <h2 class="wild__headline">Spot us in the wild</h2>
-    <div class="wild__gallery">
-      <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-liquor-store-mobile.webp"/><img src="images/findus-liquor-store-desktop.webp" alt="HANGOVR 180 pouch at liquor store checkout" loading="lazy"/></picture></div><span class="wild__item-label">LIQUOR STORES</span></div>
-      <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-convenience-store-mobile.webp"/><img src="images/findus-convenience-store-desktop.webp" alt="HANGOVR 180 on convenience store shelf" loading="lazy"/></picture></div><span class="wild__item-label">CONVENIENCE STORES</span></div>
-      <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-golf-proshop-mobile.webp"/><img src="images/findus-golf-proshop-desktop.webp" alt="HANGOVR 180 at golf course pro shop" loading="lazy"/></picture></div><span class="wild__item-label">PRO SHOPS</span></div>
-    </div>
+<section class="wild"><div class="wild__inner">
+  <h2 class="wild__headline">Spot us in the wild</h2>
+  <div class="wild__gallery">
+    <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-liquor-store-mobile.webp"/><img src="images/findus-liquor-store-desktop.webp" alt="HANGOVR 180 pouch at liquor store checkout" loading="lazy"/></picture></div><span class="wild__item-label">LIQUOR STORES</span></div>
+    <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-convenience-store-mobile.webp"/><img src="images/findus-convenience-store-desktop.webp" alt="HANGOVR 180 on convenience store shelf" loading="lazy"/></picture></div><span class="wild__item-label">CONVENIENCE STORES</span></div>
+    <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-golf-proshop-mobile.webp"/><img src="images/findus-golf-proshop-desktop.webp" alt="HANGOVR 180 at golf course pro shop" loading="lazy"/></picture></div><span class="wild__item-label">PRO SHOPS</span></div>
   </div>
-</section>
-<section class="events">
-  <div class="events__inner">
-    <h2 class="events__headline">COME TRY ONE.</h2>
-    <p class="events__body">Austin, we are showing up to your events! Find us, grab a pouch, see what tomorrow feels like.</p>
-    <p class="events__cta">BE FIRST TO KNOW.</p>
-    <form class="events__form" onsubmit="event.preventDefault();"><input type="email" class="events__input" placeholder="YOUR EMAIL ADDRESS"/><button type="submit" class="btn-dark">I'm in</button></form>
-    <p class="events__fine">No spam. Just drops.</p>
-  </div>
-</section>
+</div></section>
+<section class="events"><div class="events__inner">
+  <h2 class="events__headline">COME TRY ONE.</h2>
+  <p class="events__body">Austin, we are showing up to your events! Find us, grab a pouch, see what tomorrow feels like.</p>
+  <p class="events__cta">BE FIRST TO KNOW.</p>
+  <form class="events__form" onsubmit="event.preventDefault();"><input type="email" class="events__input" placeholder="YOUR EMAIL ADDRESS"/><button type="submit" class="btn-dark">I'm in</button></form>
+  <p class="events__fine">No spam. Just drops.</p>
+</div></section>
 </main>
-<footer class="footer">
-  <div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/></div>
-  <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div>
-  <div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div>
-</footer>
+<footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
 </body>
 </html>

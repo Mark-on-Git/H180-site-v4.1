@@ -1,8 +1,8 @@
 # HANGOVR 180 — Brand Site
 
 **Live URL:** Deployed on Vercel  
-**Version:** 4.1  
-**Last updated:** April 14, 2026!
+**Version:** 4.2  
+**Last updated:** April 15, 2026
 
 ## Overview
 
@@ -42,42 +42,30 @@ Static marketing site for HANGOVR 180, a pre-alcohol supplement brand based in A
 
 Push to main branch. Vercel auto-deploys.
 
-## Image System
+## Breakpoint System (v4.2)
 
-Images use `<picture>` elements with up to 3 variants per image:
+Three tiers:
+- **768px** — 2-column content layouts (text+image, text+text), form rows, simple horizontal arrangements
+- **768–1023px** — Intermediate 2-col grids for portraits, gallery, products (landscape phone gets a reasonable middle ground)
+- **1024px** — Nav links, footer row, 3/4-col grids, generous padding, headline size bumps
 
-- **Category 1 (heroes):** 3 versions — desktop, mobile-portrait, mobile-landscape
-- **Category 2 (mid-size):** 2 versions — desktop, mobile
-- **Category 3 (small/square):** 1 version — single WebP
+Principle: if you're holding a phone (any orientation), max 2 columns. 3+ columns only on tablets and desktops.
 
-Breakpoints: portrait `(max-width:767px)`, landscape `(max-width:1023px) and (orientation:landscape)`, desktop fallback.
+## v4.2 Changes (Breakpoint Fix)
 
-## v4.1 Changes (Landscape + Image Optimization)
+Every `@media(min-width:768px)` rule audited and split:
 
-### From v1.2 spec:
-- **Nav breakpoint → 1024px:** Hamburger stays active on all phones including landscape
-- **Landscape hero fixes:** `min-height:50vh`, scaled headlines via `clamp(2rem,6vw,3.5rem)`, page-specific `object-position` shifts
-- **whos-in.html landscape:** Hero text constrained to left 50% so runner's face stays visible
-- **doa180.html landscape:** Image shifts right (`object-position:70% center`) to keep product visible
-- **index.html landscape:** Image shifts up (`object-position:center 30%`) to keep faces visible
-- **All images → WebP** via `<picture>` with art-directed crops
-- **Logos → SVG** for crispness at any size
-- **`loading="lazy"`** on all below-fold images
+**Moved to 1024px:** All 3-col and 4-col grids, all 6rem+ padding, hero headline size bumps, footer horizontal layout, review 3-up cards, steps 3-col, clinical 3-col, product min-heights
 
-### Carried from v4.0:
-- Shared `global.css` for cross-page caching
-- SVG hamburger icon (no Material Symbols dependency except whos-in.html rocket)
-- Trimmed font weights (6 instead of 11)
-- Footer mobile refinements
-- Reviews carousel peek + dot pagination
-- Portrait consistent ordering + 2-col at 480px
-- Location badge stacking
-- Cart button 48px touch targets
-- Email form gap on mobile
+**Kept at 768px:** All 2-col content pairs (text+image, text+text), form row layouts, reassurance row, review header row, biology 2-col, bento 2-col, product side-by-side frame
+
+**Added at 768–1023px:** Intermediate 2-col grids for portraits, wild gallery, product cards
+
+**JS fix:** Reviews carousel `getPerPage()` now uses 1024px threshold to match CSS
 
 ## Notes
 
 - Material Symbols font loaded only on whos-in.html (rocket icon)
+- Images folder ships empty — client adds 44 WebP + 2 SVG files
 - Email signup forms are placeholder only
-- Cart buttons point to stock-up.html (Shopify integration pending)
-- Images folder ships empty in this zip — client adds WebP/SVG files manually
+- Cart buttons link to stock-up.html (Shopify pending)
