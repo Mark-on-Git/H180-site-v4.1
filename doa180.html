@@ -7,14 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet"/>
 <link href="global.css" rel="stylesheet"/>
 <style>
-/* Hero — reference implementation for site-wide scaling */
 .hero{position:relative;background:#2c322f;min-height:85vh;display:flex;align-items:center;overflow:hidden}
-.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center left;opacity:0.55}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55}
 .hero__content{position:relative;z-index:2;width:100%;padding:3rem 2rem;display:flex;flex-direction:column;align-items:flex-start}
 .hero__headline-wrap{max-width:42rem;padding:2rem}
-.hero__headline{font-size:clamp(3.5rem,10vw,7.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.9;color:#FFD800}
+.hero__headline{font-size:clamp(3rem,10vw,5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.9;color:#FFD800}
+.hero__cta{margin-top:2rem;padding-left:2rem}
 
-/* Steps */
 .steps{padding:6rem 2rem;background:#f5fbf6}
 .steps__grid{display:grid;grid-template-columns:1fr;gap:3rem}
 .step__meta{margin-bottom:1.5rem;display:flex;flex-direction:column;align-items:flex-start}
@@ -29,7 +28,6 @@
 .step:nth-child(3) .step__img-wrap{border:8px solid #C7084F}
 .step__img-wrap img{width:100%;height:100%;object-fit:cover}
 
-/* Reviews — stars 2.5rem, rating number, names 1.75rem, overflow fix */
 .reviews{background:#2c322f;padding:6rem 2rem;overflow:hidden}
 .reviews__inner{max-width:80rem;margin:0 auto}
 .reviews__header{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:3rem}
@@ -44,13 +42,12 @@
 .reviews__arrow{width:3rem;height:3rem;border:2px solid rgba(255,255,255,0.3);background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;cursor:pointer;transition:all 0.2s}
 .reviews__arrow:hover{border-color:#FFD800;color:#FFD800}
 .reviews__track-wrap{overflow:hidden;position:relative}
-.reviews__track{display:flex;gap:1rem;transition:transform 0.5s ease;cursor:grab}
-.reviews__track.is-dragging{cursor:grabbing;transition:none}
+.reviews__track{display:flex;gap:1rem;transition:transform 0.5s ease}
 .review-card{width:85%;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);padding:2rem;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0}
-.review-card__stars{margin-bottom:1.5rem;font-size:2.5rem;letter-spacing:0.05em;display:flex;align-items:center;gap:0.15rem;overflow:hidden;flex-wrap:nowrap}
-.review-card__rating{font-size:2.5rem;font-weight:900;color:#FFD800;margin-right:0.35rem;flex-shrink:0}
-.review-card__star--filled{color:#FFD800;flex-shrink:0}
-.review-card__star--empty{color:rgba(255,255,255,0.2);flex-shrink:0}
+.review-card__stars{margin-bottom:1.5rem;font-size:2.5rem;letter-spacing:0;display:flex;align-items:center;gap:0.1rem;overflow:hidden;flex-wrap:nowrap;max-width:100%}
+.review-card__rating{font-size:2.5rem;font-weight:900;color:#FFD800;margin-right:0.5rem}
+.review-card__star--filled{color:#FFD800}
+.review-card__star--empty{color:rgba(255,255,255,0.2)}
 .review-card__title{font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;margin-bottom:1rem}
 .review-card__body{font-size:1rem;line-height:1.6;color:rgba(255,255,255,0.8);margin-bottom:2rem;flex-grow:1}
 .review-card__name{font-size:1.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#C7084F}
@@ -58,7 +55,6 @@
 .reviews__dot{width:0.5rem;height:0.5rem;border-radius:50%;background:rgba(255,255,255,0.25);border:none;padding:0;cursor:pointer;transition:background 0.2s}
 .reviews__dot--active{background:#FFD800}
 
-/* Biology */
 .biology{padding:6rem 2rem;background:#ffffff;text-align:center}
 .biology__inner{max-width:64rem;margin:0 auto}
 .biology__headline{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;margin-bottom:4rem;line-height:0.9}
@@ -69,40 +65,26 @@
 .biology__text{font-size:clamp(1.25rem,2.5vw,1.5rem);font-weight:700;line-height:1.3;text-transform:uppercase}
 .biology__cta{text-align:center}
 
-/* Landscape */
 @media(orientation:landscape) and (max-height:500px){
   .hero{min-height:50vh}
   .hero__headline{font-size:clamp(2rem,6vw,3.5rem)}
   .hero__img{object-position:70% center}
 }
-@media(max-width:1023px){
-  .hero__content{padding-bottom:calc(3rem + env(safe-area-inset-bottom, 0px))}
-}
-
-/* 768px — 2-col layouts */
 @media(min-width:768px){
   .reviews__header{flex-direction:row;justify-content:space-between;align-items:flex-end}
   .reviews__arrows{margin-top:0}
   .biology__cols{grid-template-columns:1fr 1fr;gap:6rem}
 }
-
-/* 1024px — steps 3-col */
 @media(min-width:1024px){
   .hero__content{padding:4rem}
   .hero__headline-wrap{padding:2rem 3rem}
+  .hero__headline{font-size:clamp(5rem,10vw,8rem)}
   .steps{padding:6rem 4rem}
   .steps__grid{grid-template-columns:1fr 1fr 1fr;gap:1rem}
   .reviews{padding:6rem 4rem}
+  .review-card{width:calc((100% - 2rem) / 3)}
   .reviews__dots{display:none}
   .biology{padding:10rem 4rem}
-}
-
-/* Reviews: 3-wide at 1200+, 2-wide at 768-1199 on desktop, 1-wide below */
-@media(min-width:1200px){
-  .review-card{width:calc((100% - 2rem) / 3)}
-}
-@media(min-width:768px) and (max-width:1199px){
-  .review-card{width:calc((100% - 1rem) / 2)}
 }
 </style>
 </head>
@@ -118,11 +100,18 @@
   </div>
   <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </nav>
-<div id="mm" class="mobile-menu"><a href="index.html">HOME</a><span class="mobile-menu__sub"></span><a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span><a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span><a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span><a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span><a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span></div>
+<div id="mm" class="mobile-menu">
+  <a href="index.html">HOME</a><span class="mobile-menu__sub"></span>
+  <a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span>
+  <a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span>
+  <a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span>
+  <a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span>
+  <a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span>
+</div>
 <main>
 <section class="hero">
   <picture><source media="(max-width:767px)" srcset="images/hero-doa180-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-doa180-mobile-landscape.webp"/><img src="images/hero-doa180-desktop.webp" alt="Man holding HANGOVR 180 pouch at a bar" class="hero__img"/></picture>
-  <div class="hero__content"><div class="hero__headline-wrap"><h1 class="hero__headline">THIS IS WHAT<br/>SMART LOOKS LIKE.</h1></div></div>
+  <div class="hero__content"><div class="hero__headline-wrap"><h1 class="hero__headline">THIS IS WHAT<br/>SMART LOOKS LIKE.</h1></div><div class="hero__cta"><a href="whos-in.html" class="btn-cta-dark">WHO'S IN</a></div></div>
 </section>
 <section class="steps"><div class="steps__grid">
   <div class="step"><div class="step__meta"><h3 class="step__title">TEAR.</h3></div><div class="step__img-wrap"><img src="images/step-tear.webp" alt="Hands tearing open a HANGOVR 180 sachet" loading="lazy"/></div></div>
@@ -134,7 +123,7 @@
     <div class="reviews__header-left"><div class="reviews__verdict"><div class="reviews__verdict-accent"></div><span class="reviews__verdict-text">THE VERDICT.</span></div><div class="reviews__stats"><span style="color:#fff">4.5 STARS, 2000</span><span class="reviews__stats-red">+</span><br/><span class="reviews__stats-white">REVIEWS</span></div></div>
     <div class="reviews__arrows"><button class="reviews__arrow" id="rev-prev" aria-label="Previous reviews">&larr;</button><button class="reviews__arrow" id="rev-next" aria-label="Next reviews">&rarr;</button></div>
   </div>
-  <div class="reviews__track-wrap"><div class="reviews__track" id="reviews-track" tabindex="0"></div></div>
+  <div class="reviews__track-wrap"><div class="reviews__track" id="reviews-track"></div></div>
   <div class="reviews__dots" id="reviews-dots"></div>
 </div></section>
 <section class="biology"><div class="biology__inner">
@@ -154,7 +143,7 @@
   for(var i=0;i<reviews.length;i++){var r=reviews[i],stars='';for(var s=0;s<5;s++){stars+=s<r.rating?'<span class="review-card__star--filled">&#9733;</span>':'<span class="review-card__star--empty">&#9734;</span>';}html+='<div class="review-card"><div><div class="review-card__stars"><span class="review-card__rating">'+r.rating+'.0</span>'+stars+'</div><h4 class="review-card__title">'+r.title+'</h4><p class="review-card__body">\u201C'+r.review+'\u201D</p></div><p class="review-card__name">\u2013 '+r.name.toUpperCase()+'</p></div>';}
   track.innerHTML=html;
   var pos=0,autoTimer;
-  function getPerPage(){var w=window.innerWidth;return w>=1200?3:w>=768?2:1}
+  function getPerPage(){return window.innerWidth>=1024?3:1}
   function totalPages(){return Math.ceil(reviews.length/getPerPage())}
   function buildDots(){var tp=totalPages(),d='';for(var i=0;i<tp;i++)d+='<button class="reviews__dot'+(i===pos?' reviews__dot--active':'')+'" data-page="'+i+'" aria-label="Page '+(i+1)+'"></button>';dotsWrap.innerHTML=d;var btns=dotsWrap.querySelectorAll('.reviews__dot');for(var b=0;b<btns.length;b++)btns[b].addEventListener('click',function(){pos=parseInt(this.getAttribute('data-page'));slide();updateDots();resetAuto()})}
   function updateDots(){var d=dotsWrap.querySelectorAll('.reviews__dot');for(var i=0;i<d.length;i++)d[i].classList.toggle('reviews__dot--active',i===pos)}
@@ -164,17 +153,9 @@
   function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(next,60000)}
   document.getElementById('rev-next').addEventListener('click',function(){next();resetAuto()});
   document.getElementById('rev-prev').addEventListener('click',function(){prev();resetAuto()});
-  // Touch swipe
   var startX=0,isDragging=false;
   track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;isDragging=true},{passive:true});
   track.addEventListener('touchend',function(e){if(!isDragging)return;isDragging=false;var d=startX-e.changedTouches[0].clientX;if(Math.abs(d)>50){d>0?next():prev();resetAuto()}},{passive:true});
-  // Mouse drag
-  var mouseDown=false,mouseStartX=0;
-  track.addEventListener('mousedown',function(e){mouseDown=true;mouseStartX=e.clientX;track.classList.add('is-dragging');e.preventDefault()});
-  document.addEventListener('mousemove',function(e){if(!mouseDown)return;e.preventDefault()});
-  document.addEventListener('mouseup',function(e){if(!mouseDown)return;mouseDown=false;track.classList.remove('is-dragging');var d=mouseStartX-e.clientX;if(Math.abs(d)>50){d>0?next():prev();resetAuto()}});
-  // Arrow keys
-  track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){next();resetAuto();e.preventDefault()}else if(e.key==='ArrowLeft'){prev();resetAuto();e.preventDefault()}});
   window.addEventListener('resize',function(){if(pos>=totalPages())pos=0;buildDots();slide()});
   buildDots();autoTimer=setInterval(next,60000);
 })();

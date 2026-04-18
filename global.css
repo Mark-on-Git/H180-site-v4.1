@@ -1,4 +1,4 @@
-/* HANGOVR 180 — Global Styles (v4.4) */
+/* HANGOVR 180 — Global Styles (v4.3) */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -29,26 +29,22 @@ input{font-family:'Montserrat',sans-serif}
 .mobile-menu__sub{display:block;font-size:0.75rem;font-weight:500;color:rgba(255,216,0,0.6);text-transform:none;letter-spacing:0;padding-bottom:1rem;border-bottom:4px solid rgba(255,216,0,0.2)}
 .mobile-menu a:last-of-type + .mobile-menu__sub{border-bottom:none}
 
-/* CTA on LIGHT backgrounds */
+/* Buttons — CTA on LIGHT backgrounds */
 .btn-cta-light{background:#C7084F;color:#fff;padding:1.5rem 3rem;font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border-radius:0;display:inline-block;text-align:center;white-space:nowrap;border:none;cursor:pointer;font-family:'Montserrat',sans-serif}
 .btn-cta-light:hover{background:#303633;color:#FFD800}
 
-/* CTA on DARK backgrounds */
+/* Buttons — CTA on DARK backgrounds */
 .btn-cta-dark{background:#C7084F;color:#fff;padding:1.5rem 3rem;font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border-radius:0;display:inline-block;text-align:center;white-space:nowrap;border:none;cursor:pointer;font-family:'Montserrat',sans-serif}
 .btn-cta-dark:hover{background:#FFD800;color:#303633}
 
-/* Signup buttons (dark/yellow default) */
-.btn-signup{background:#303633;color:#FFD800;padding:1.5rem 3rem;font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border-radius:0;display:inline-block;text-align:center;white-space:nowrap;border:none;cursor:pointer;font-family:'Montserrat',sans-serif}
-.btn-signup:hover{background:#C7084F;color:#fff}
-
-/* Card buttons (dark/yellow default, full-width) */
-.card__btn{background:#303633;color:#FFD800;width:100%;padding:1.25rem;font-size:1rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;text-align:center;min-height:48px}
-.card__btn:hover{background:#C7084F;color:#fff}
+/* Card buttons (full-width, on light backgrounds) */
+.card__btn{background:#C7084F;color:#fff;width:100%;padding:1.25rem;font-size:1rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;text-align:center;min-height:48px}
+.card__btn:hover{background:#303633;color:#FFD800}
 
 /* Footer */
 .footer{background:#303633;border-top:16px solid #C7084F;padding:3rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:2rem}
 .footer__brand{display:flex;align-items:center}
-.footer__logo-img{height:7rem;width:auto}
+.footer__logo-img{height:3.5rem;width:auto}
 .footer__links{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem}
 .footer__links a{font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#FFD800}
 .footer__links a:hover{text-decoration:underline;text-decoration-thickness:4px}
@@ -61,9 +57,9 @@ input{font-family:'Montserrat',sans-serif}
   .footer{flex-direction:row;justify-content:space-between;align-items:center;padding:4rem 3rem}
   .footer__links a{font-size:0.75rem}
 
-  /* Nav clarifier tooltips — 0.5s delay, fade in */
+  /* Nav clarifier tooltips */
   .nav__link{overflow:visible}
-  .nav__clarifier{display:block;position:absolute;top:100%;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:0.6875rem;font-weight:500;text-transform:none;letter-spacing:0;color:#303633;background:#fff;padding:0.25rem 0.75rem;z-index:10;margin-top:0.25rem;opacity:0;pointer-events:none;transition:opacity 0.3s ease 0.5s}
-  .nav__link:hover .nav__clarifier{opacity:1}
-  .nav__link--active .nav__clarifier{color:#303633;background:#fff}
+  .nav__clarifier{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:0.6875rem;font-weight:500;text-transform:none;letter-spacing:0;color:#303633;background:#FFD800;padding:0.25rem 0.5rem;z-index:10;margin-top:0.125rem}
+  .nav__link:hover .nav__clarifier{display:block}
+  .nav__link--active .nav__clarifier{color:#FFD800;background:#303633}
 }
