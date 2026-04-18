@@ -8,7 +8,7 @@
 <link href="global.css" rel="stylesheet"/>
 <style>
 .hero{position:relative;background:#2c322f;min-height:50vh;display:flex;align-items:center;padding:4rem 2rem;overflow:hidden}
-.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center left;opacity:0.4}
 .hero__content{max-width:64rem;position:relative;z-index:2}
 .hero__headline{font-size:clamp(3.5rem,10vw,7.5rem);line-height:0.85;font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;color:#FFD800}
 .hero__sub{margin-top:1.5rem;font-size:clamp(1.375rem,3vw,1.875rem);font-weight:700;color:#fff;max-width:36rem;letter-spacing:-0.01em}
@@ -47,9 +47,8 @@
 .events__input:focus{outline:none;box-shadow:inset 0 -4px 0 #303633}
 .events__fine{font-size:0.75rem;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:rgba(48,54,51,0.5)}
 @media(orientation:landscape) and (max-height:500px){.hero{min-height:40vh}.hero__headline{font-size:clamp(2rem,6vw,3.5rem)}.hero__sub{font-size:clamp(1rem,2.5vw,1.25rem)}.ttt-banner{min-height:20vh}}
-@media(min-width:768px){.location{flex-direction:row;align-items:center;justify-content:space-between;gap:0}.events__form{flex-direction:row;gap:0}}
-@media(min-width:768px) and (max-width:1023px){.wild__gallery{grid-template-columns:1fr 1fr}}
-@media(min-width:1024px){.hero{padding:4rem 6rem}.locations{padding:6rem}.wild{padding:6rem}.wild__gallery{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:768px){.location{flex-direction:row;align-items:center;justify-content:space-between;gap:0}.events__form{flex-direction:row;gap:0}.wild__gallery{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.hero{padding:4rem 6rem}.locations{padding:6rem}.wild{padding:6rem}.wild__gallery{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -74,7 +73,7 @@
   <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-convenience-store-mobile.webp"/><img src="images/findus-convenience-store-desktop.webp" alt="HANGOVR 180 on convenience store shelf" loading="lazy"/></picture></div><span class="wild__item-label">CONVENIENCE STORES</span></div>
   <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-golf-proshop-mobile.webp"/><img src="images/findus-golf-proshop-desktop.webp" alt="HANGOVR 180 at golf course pro shop" loading="lazy"/></picture></div><span class="wild__item-label">PRO SHOPS</span></div>
 </div></div></section>
-<section class="events"><div class="events__inner"><h2 class="events__headline">COME TRY ONE.</h2><p class="events__body">Austin, we are showing up to your events! Find us, grab a pouch, see what tomorrow feels like.</p><p class="events__cta">BE FIRST TO KNOW.</p><form class="events__form" onsubmit="event.preventDefault();"><input type="email" class="events__input" placeholder="YOUR EMAIL ADDRESS"/><button type="submit" class="btn-cta-light">I'm in</button></form><p class="events__fine">No spam. Just drops.</p></div></section>
+<section class="events"><div class="events__inner"><h2 class="events__headline">COME TRY ONE.</h2><p class="events__body">Austin, we are showing up to your events! Find us, grab a pouch, see what tomorrow feels like.</p><p class="events__cta">BE FIRST TO KNOW.</p><form class="events__form" onsubmit="event.preventDefault();"><input type="email" class="events__input" placeholder="YOUR EMAIL ADDRESS"/><button type="submit" class="btn-signup">I'm in</button></form><p class="events__fine">No spam. Just drops.</p></div></section>
 </main>
 <footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
 </body>

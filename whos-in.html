@@ -9,16 +9,19 @@
 <link href="global.css" rel="stylesheet"/>
 <style>
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+
+/* Hero — center-left anchor */
 .hero{position:relative;width:100%;min-height:90vh;background:#2c322f;overflow:hidden;display:flex;align-items:flex-end}
-.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.25)}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center left;filter:contrast(1.25)}
 .hero__content{position:relative;z-index:2;padding:2rem;max-width:72rem}
 .hero__headline{font-size:clamp(3.5rem,10vw,7.5rem);font-weight:900;text-transform:uppercase;line-height:0.85;letter-spacing:-0.04em;color:#FFD800;margin-bottom:2rem}
 .hero__sub{color:#fff;font-weight:700;font-size:clamp(1.375rem,3vw,1.875rem);max-width:32rem;line-height:1.3;margin-bottom:1.5rem;letter-spacing:-0.01em}
 .hero__sub em{font-style:normal;font-weight:900;font-size:1.1em}
 
+/* Identity — rebalanced headline, full line break */
 .identity{background:#FFD800;padding:6rem 2rem;border-top:16px solid #2c322f;border-bottom:16px solid #2c322f}
 .identity__grid{max-width:80rem;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
-.identity__headline{font-size:clamp(2.5rem,6vw,4.5rem);text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;line-height:1}
+.identity__headline{font-size:clamp(2rem,4.5vw,3.5rem);text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;line-height:1}
 .identity__hl-light{font-weight:500}
 .identity__hl-heavy{font-weight:900}
 .identity__body{font-size:clamp(1.25rem,2.5vw,1.5rem);color:#2c322f;line-height:1.3;font-style:italic}
@@ -26,8 +29,10 @@
 .identity__body-emphasis{font-style:normal;font-weight:900}
 .identity__body-mid{font-weight:700;font-style:italic}
 .identity__body-strong{font-style:normal;font-weight:900}
+.identity__body-break{display:block;height:1.5em}
 .identity__cta{margin-top:2rem}
 
+/* Portraits — no borders, flush captions, breakpoints at 1400/850 */
 .portraits{background:#f5fbf6;padding:6rem 2rem}
 .portraits__grid{max-width:90rem;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem}
 .portrait{display:flex;flex-direction:column}
@@ -49,6 +54,7 @@
 .portrait:nth-child(3) .portrait__name{color:#f5fbf6}
 .portrait:nth-child(4) .portrait__name{color:#303633}
 
+/* Bento — STAY bold, rest normal weight */
 .bento{padding:0 2rem 6rem}
 .bento__grid{display:grid;grid-template-columns:1fr;gap:1rem}
 .bento__main{background:#2c322f;padding:3rem;display:flex;flex-direction:column;justify-content:space-between;min-height:25rem}
@@ -57,38 +63,48 @@
 .bento__main-body strong{font-weight:700}
 .bento__stat{background:#C7084F;padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .bento__stat-icon{color:#fff;font-size:5rem;margin-bottom:1rem}
-.bento__stat-text{color:#fff;font-weight:900;font-size:clamp(1.5rem,3vw,1.875rem);text-transform:uppercase;letter-spacing:-0.02em}
-.bento__stat-light{font-weight:400}
+.bento__stat-text{color:#fff;font-weight:400;font-size:clamp(1.5rem,3vw,1.875rem);text-transform:uppercase;letter-spacing:-0.02em}
+.bento__stat-bold{font-weight:900}
 .bento__stat-sub{color:rgba(255,255,255,0.8);font-weight:700;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.05em;margin-top:1rem}
 
+/* Landscape */
 @media(orientation:landscape) and (max-height:500px){
   .hero{min-height:50vh}
   .hero__headline{font-size:clamp(2rem,6vw,3.5rem)}
   .hero__sub{font-size:clamp(1rem,2.5vw,1.25rem)}
   .hero__content{align-items:flex-start;max-width:50%;padding:1rem 2rem}
 }
-@media(min-width:480px) and (max-width:767px){
-  .portraits__grid{grid-template-columns:1fr 1fr;gap:2rem}
-  .portrait__img-wrap{aspect-ratio:3/4}
+@media(max-width:1023px){
+  .hero__content{padding-bottom:calc(3rem + env(safe-area-inset-bottom, 0px))}
 }
+
+/* 768px — 2-col content */
 @media(min-width:768px){
   .identity__grid{grid-template-columns:1fr 1fr;gap:4rem}
   .bento__grid{grid-template-columns:2fr 1fr}
 }
-@media(min-width:768px) and (max-width:1023px){
+
+/* 850px — portraits 2-wide → 1-wide fires here */
+@media(min-width:850px){
   .portraits__grid{grid-template-columns:1fr 1fr;gap:1.5rem}
 }
+
+/* 1024px — padding */
 @media(min-width:1024px){
   .hero__content{padding:4rem;max-width:72rem}
   .identity{padding:6rem 4rem}
   .portraits{padding:6rem 4rem}
+  .bento{padding:0 4rem 6rem}
+}
+
+/* 1400px — portraits 4-wide + stagger */
+@media(min-width:1400px){
   .portraits__grid{grid-template-columns:1fr 1fr 1fr 1fr;gap:3rem}
   .portrait{display:block}
   .portrait__img-wrap{order:unset}
   .portrait__caption{order:unset}
   .portrait:nth-child(2){margin-top:6rem}
   .portrait:nth-child(4){margin-top:6rem}
-  .bento{padding:0 4rem 6rem}
 }
 </style>
 </head>
@@ -104,14 +120,7 @@
   </div>
   <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </nav>
-<div id="mm" class="mobile-menu">
-  <a href="index.html">HOME</a><span class="mobile-menu__sub"></span>
-  <a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span>
-  <a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span>
-  <a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span>
-  <a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span>
-  <a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span>
-</div>
+<div id="mm" class="mobile-menu"><a href="index.html">HOME</a><span class="mobile-menu__sub"></span><a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span><a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span><a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span><a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span><a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span></div>
 <main>
 <section class="hero">
   <picture><source media="(max-width:767px)" srcset="images/hero-whos-in-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-whos-in-mobile-landscape.webp"/><img src="images/hero-whos-in-desktop.webp" alt="Woman running with Austin skyline at golden hour" class="hero__img"/></picture>
@@ -120,7 +129,7 @@
 <section class="identity"><div class="identity__grid">
   <div><h2 class="identity__headline"><span class="identity__hl-light">Why choose</span> <span class="identity__hl-light">between</span> <span class="identity__hl-heavy">the life you love</span> <span class="identity__hl-light">and the</span> <span class="identity__hl-heavy">body that keeps up with you?</span></h2></div>
   <div>
-    <p class="identity__body"><span class="identity__body-intro">Tomorrow People know:</span><br/><span class="identity__body-mid">If you know you're taking an Uber later, take a <span style="color:#C7084F">180</span> now.</span> <span class="identity__body-emphasis">It is THE move.</span><br/><span class="identity__body-mid">Be the one who shows up for everything &mdash; the golf game today, the dinner tonight, the meeting tomorrow &mdash;</span> <span class="identity__body-strong">and never apologize for any of it.</span></p>
+    <p class="identity__body"><span class="identity__body-intro">Tomorrow People know:</span><br/><span class="identity__body-mid">If you know you're taking an Uber later, take a <span style="color:#C7084F">180</span> now.</span> <span class="identity__body-emphasis">It is THE move.</span><span class="identity__body-break"></span><span class="identity__body-mid">Be the one who shows up for everything &mdash; the golf game today, the dinner tonight, the meeting tomorrow &mdash;</span> <span class="identity__body-strong">and never apologize for any of it.</span></p>
     <div class="identity__cta"><a href="find-us.html" class="btn-cta-light">FIND US</a></div>
   </div>
 </div></section>
@@ -132,7 +141,7 @@
 </div></section>
 <section class="bento"><div class="bento__grid">
   <div class="bento__main"><div><h4 class="bento__main-headline">THE 180 REVOLUTION.</h4></div><p class="bento__main-body">Don't wait for the morning to decide how it goes. 180 tonight. <strong>By the time you wake up, the work is done.</strong></p><div><a href="find-us.html" class="btn-cta-dark" style="padding:1rem 2rem;">TEAR, TAKE, TURN UP</a></div></div>
-  <div class="bento__stat"><span class="material-symbols-outlined bento__stat-icon">rocket_launch</span><p class="bento__stat-text">TOMORROW PEOPLE <span class="bento__stat-light">STAY</span> TOMORROW PEOPLE.</p><p class="bento__stat-sub">4.5 STARS, 2000+ REVIEWS</p></div>
+  <div class="bento__stat"><span class="material-symbols-outlined bento__stat-icon">rocket_launch</span><p class="bento__stat-text">TOMORROW PEOPLE <span class="bento__stat-bold">STAY</span> TOMORROW PEOPLE.</p><p class="bento__stat-sub">4.5 STARS, 2000+ REVIEWS</p></div>
 </div></section>
 </main>
 <footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
